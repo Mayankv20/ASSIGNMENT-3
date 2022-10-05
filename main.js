@@ -30,7 +30,7 @@ var app = new Vue({
     issweets: true,
     isHealthandBeauty: false,
     isreadytoeat: false,
-    ismedicine: false,
+    isbeverages: false,
     iscart: false,
     cart: [],
     finalcart: [],
