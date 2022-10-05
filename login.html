@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- <template> -->
+    <div class="wrapper">
+      <div class="title-text">
+        <div class="title login">INDIAN GROCERY </div>
+        <div class="title signup">Signup Form</div>
+      </div>
+      <div class="form-container">
+        <div class="slide1-controls">
+          <input type="radio" name="slide1" id="login" checked />
+          <input type="radio" name="slide1" id="signup" />
+          <label for="login" class="slide1 login">Log In</label>
+          <label for="signup" class="slide1 signup">Sign Up</label>
+          <div class="slide1r-tab"></div>
+        </div>
+        <div class="form-inner">
+          <form action="#" class="login">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="pass-link">
+              <a href="#">RESET password?</a>
+            </div>
+            <div class="field btn-form">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Login" />
+            </div>
+            <div class="signup-link">
+              New Member?
+              <a href>Signup now</a>
+            </div>
+          </form>
+          <form action="#" class="signup">
+            <div class="field">
+              <input type="text" placeholder="Email Address" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Password" required />
+            </div>
+            <div class="field">
+              <input type="password" placeholder="Confirm password" required />
+            </div>
+            <div class="field btn-form">
+              <div class="btn-layer"></div>
+              <input type="submit" value="Signup" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- </template> -->
+  <script type="text/javascript" src="login.js"></script>
+</body>
+</html>

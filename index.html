@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>INDIAN GROCERY |Home</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+	<div class = "image">
+		<div class = "header">
+			
+		</div>
+	</div>
+</head>
+<body>
+	<div id="app">
+		<div class="flex-row" id="navigation">
+			<div class="flex-row">
+				<img src="gg.svg" class="icon">
+				<div><h1>INDIAN GROCERY</h1></div>
+			</div>
+			<div class="flex-row" id="bigmenu">
+				<div class="flex-row">
+					<div class="ind">
+						<img src="Products.svg" class="icon">
+						<h2 @click="toogleproduct">Products</h2>
+					</div>
+					<span></span>
+					<div class="ind">
+						<img src="AboutUs.svg" class="icon">
+						<h2 @click="toogleabout">About Us</h2>
+					</div>
+					<span></span>
+					<div class="ind">	
+						<img src="ContactUs.svg" class="icon">
+						<h2 @click="tooglecontact">Contact Us</h2>
+					</div>
+					<span></span>
+				</div>
+				<span></span>
+				<div class="ind">
+					<img src="Login.svg" class="icon">
+					<h2 @click="tooglelogin">Log in</h2>
+				</div>
+				<span></span>
+				<div id="cart" @click="iscart=!iscart">
+					<div class="flex-row">
+						<div class="ind">
+							<img src="cart.svg" class="icon">
+							<h2>Cart</h2>
+						</div>
+					</div>
+					<div v-if="iscart" id="thecart">
+						<ul v-for="item in cart">
+							<li class="flex-row" style="justify-content: left">
+			                  <div>{{item.qty}}</div>
+			                  <span></span>
+			                  <div>{{item.name}}</div>
+			                  <span></span>
+			                  <div>{{item.price}}</div>
+			                </li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div>
+				<button onclick="myFunction()">Place Order</button>
+				<script>
+					function myFunction() {
+  						alert("ORDER PLACED, THANK YOU!!");
+					}
+				</script>
+			</div>
+			<div class="dropdown">
+  				<button class="dropbtn">Menu</button>
+  				<div class="dropdown-content" style="padding: 10px;">
+					<span></span>
+					<h2 @click="toogleproduct">Products</h2>
+					<h2 @click="toogleabout">About Us</h2>
+					<h2 @click="tooglecontact">Contact Us</h2>
+					<h2 @click="tooglelogin">Log in</h2>
+ 				</div>
+			</div>
+			<div id="cart" class="cart2" @click="iscart=!iscart">
+					<div class="flex-row">
+						<div class="ind">
+							<img src="cart.svg" class="icon">
+							<h2>Cart</h2>
+						</div>
+					</div>
+					<div v-if="iscart" id="thecart">
+						<ul v-for="item in cart">
+							<li class="flex-row" style="justify-content: left">
+			                  <div>{{item.qty}}</div>
+			                  <span></span>
+			                  <div>{{item.name}}</div>
+			                  <span></span>
+			                  <div>{{item.price}}</div>
+			                </li>
+						</ul>
+					</div>
+				</div>
+		</div>
+
+		<div v-if="isproduct" id="products">
+			<span></span>
+			<!-- <h1>Products</h1> -->
+			<hr>
+			<div class="flex-row" id="navigation">
+				<h2 class="ind" @click="tooglesweets">Indian Sweets</h2>
+				<h2 class="ind" @click="toogleHealthandBeauty">Health and Beauty</h2>
+				<h2 class="ind" @click="tooglereadytoeat">Ready to Eat</h2>
+				<h2 class="ind" @click="tooglebeverages">BEVERAGES</h2>
+			</div>
+			<br>
+			<div v-if="issweets">
+				<div v-for="item in products" v-if="item.type=='sweets'">
+						<product-item :item="item" @add="add" @remove="remove"></product-item>
+				</div>
+			</div>
+			<div v-if="isHealthandBeauty">
+				<div v-for="item in products" v-if="item.type=='HealthandBeauty'">
+						<product-item :item="item" @add="add" @remove="remove"></product-item>
+				</div>
+			</div>
+			<div v-if="isreadytoeat">
+				<div v-for="item in products" v-if="item.type=='readytoeat'">
+						<product-item :item="item" @add="add" @remove="remove"></product-item>
+				</div>
+			</div>
+			<div v-if="isbeverages">
+				<div v-for="item in products" v-if="item.type=='beverages'">
+						<product-item :item="item" @add="add" @remove="remove"></product-item>
+				</div>
+			</div>
+		</div>
+
+		<div v-if="isabout">
+			<div id="contact">
+            	<div class="conh">
+                	ABOUT US
+            	</div>
+            	<div class="abox">
+                	<div class="abtus">
+                    	<div id=contact>
+                    		<P>
+                    			We are a small, youthful team of people of colour who take pride in our curries and think that no one should ever go hungry. Selling Indian groceries online is how we share our passion for food and our culture.
+Our internet journey began with the intention of being able to assist people during situations like COVID, but the response was pleasantly unexpected.
+
+We sincerely appreciate the love you have given us and the grace you have shown us throughout this time of development and learning. We work hard to serve as your one-stop shop for all of your Indian groceries in Melbourne and, in the long run, to become the most well-known Indian story in Australia.
+								<br> 
+								Last but not the least, this website is designed to provide best service and 
+								experience to public.
+							</P>
+                    	</div>
+                	</div>
+            	</div>
+            </div>
+		</div>
+
+		<div v-if="iscontact">
+			<div class="contact">
+            	<div class="conh">
+                	CONTACT US
+            	</div>
+            	<div class="cbox">
+                	<div class="cont">
+                    	<div id=contact>
+                    		<div style="font-size: 26px" > {{company}}<br></div>
+                        	&#9990; {{ ph }}<br>
+                        	&#9993; {{ email }}<br>
+                    	</div>
+                	</div>
+            	</div>
+            </div>
+        </div>
+
+		<div v-if="islogin" >
+			<!-- <h1>Login page</h1>
+			<a class="sign_out" href="login.html"><i class="fa fa-sign-out"></i>Sign out</a> -->
+			<div class="logpage">
+				<div class="wrapper">
+			   		<div class="title-text">
+						<div class="title login">INDIAN GROCERY</div>
+						<div class="title signup">Signup Form</div>
+					</div>
+					<div class="form-container">
+						<div class="slide1-controls">
+							<input type="radio" name="slide1" id="login" checked />
+							<input type="radio" name="slide1" id="signup" />
+					    	<label for="login" class="slide1 login">Login</label>
+					    	<label for="signup" class="slide1 signup">Signup</label>
+					    	<div class="slide1r-tab"></div>
+						</div>
+						<div class="form-inner">
+					   		<form action="#" class="login">
+						    	<div class="field">
+						        	<input type="text" placeholder="Email Address" required />
+						    	</div>
+						    	<div class="field">
+						        	<input type="password" placeholder="Password" required />
+						    	</div>
+						    	<div class="pass-link">
+						        	<a href="#">Forgot password?</a>
+						    	</div>
+						    	<div class="field btn-form">
+						        	<div class="btn-layer"></div>
+						        	<div class="login1"><input type="submit" value="Login" /></div>
+						            <!-- <input type="submit" value="Login" /> -->
+						        </div>
+						        <div class="signup-link">
+						        	Not a member?
+						        	<a href>Signup now</a>
+						        </div>
+					    	</form>
+					    	<form action="#" class="signup">
+					        	<div class="field">
+					          		<input type="text" placeholder="Email Address" required />
+					        	</div>
+					        	<div class="field">
+					            	<input type="password" placeholder="Password" required />
+					        	</div>
+					        	<div class="field">
+					            	<input type="password" placeholder="Confirm password" required />
+					        	</div>
+					        	<div class="field btn-form">
+					            	<div class="btn-layer"></div>
+					            	<input type="submit" value="Signup" />
+					        	</div>
+					   		</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
